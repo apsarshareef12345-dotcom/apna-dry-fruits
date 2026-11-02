@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apna Dry Fruits | Badam, Kaju, Pista & more with price per kg</title>
+<meta name="description" content="Buy badam, kaju, pista, akhrot, anjeer, dates, makhana and seeds. ₹150 off per kg on badam and kaju, ₹100 off on everything else. Order on WhatsApp.">
+<meta property="og:title" content="Apna Dry Fruits">
+<meta property="og:description" content="Fresh dry fruits with clear per-kg prices. Order in one tap on WhatsApp.">
+<meta property="og:image" content="assets/products/mixed.svg">
+<meta name="theme-color" content="#0e3b2e">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <p>Badam &amp; Kaju <strong>₹150 off per kg</strong>. Everything else <strong>₹100 off per kg</strong>. Order on WhatsApp.</p>
+</div>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="#top" aria-label="Apna Dry Fruits home">
+      <img src="assets/logo.svg" alt="" width="40" height="40">
+      <span>Apna Dry Fruits</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#shop">Shop</a>
+      <a href="#pricelist">Price list</a>
+      <a href="#budget">Monthly budget</a>
+      <a href="#tips">Buying tips</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <button class="cart-btn" id="openCart" aria-label="Open cart">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6 5 3H2"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1>Fresh dry fruits at honest prices.</h1>
+      <p class="lead">Pick your pack, add to cart, and send the order straight to us on WhatsApp. Every item shows the original price per kg and what you actually pay.</p>
+      <div class="hero-cta">
+        <a class="btn btn-saffron" href="#shop">Shop dry fruits</a>
+        <a class="btn btn-ghost" href="https://wa.me/919640032945?text=Hello%20Apna%20Dry%20Fruits%2C%20I%20want%20to%20order." target="_blank" rel="noopener">Chat on WhatsApp</a>
+      </div>
+      <ul class="hero-facts">
+        <li><strong>₹150 off</strong> per kg on badam and kaju</li>
+        <li><strong>₹100 off</strong> per kg on everything else</li>
+        <li><strong>250 g, 500 g, 1 kg</strong> packs</li>
+      </ul>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <img class="h1" src="assets/products/badam.svg" alt="" width="260" height="260">
+      <img class="h2" src="assets/products/kaju.svg" alt="" width="260" height="260">
+      <img class="h3" src="assets/products/pista.svg" alt="" width="260" height="260">
+      <img class="h4" src="assets/products/anjeer.svg" alt="" width="260" height="260">
+    </div>
+  </div>
+</section>
+
+<!-- SHOP -->
+<section class="section" id="shop">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Shop all dry fruits</h2>
+      <p>Prices are per pack. The crossed-out price is the original, the bold price is yours.</p>
+    </div>
+    <div class="chips" role="tablist" aria-label="Filter products" id="chips">
+      <button class="chip active" data-cat="all" role="tab" aria-selected="true">All</button>
+      <button class="chip" data-cat="nuts" role="tab" aria-selected="false">Nuts</button>
+      <button class="chip" data-cat="dryfruits" role="tab" aria-selected="false">Dried fruits</button>
+      <button class="chip" data-cat="seeds" role="tab" aria-selected="false">Seeds &amp; makhana</button>
+      <button class="chip" data-cat="combos" role="tab" aria-selected="false">Combos</button>
+    </div>
+    <div class="grid" id="productGrid"></div>
+  </div>
+</section>
+
+<!-- PRICE LIST -->
+<section class="section tint" id="pricelist">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Dry fruits price list per kg</h2>
+      <p>One table, every item. Badam and kaju are ₹150 off per kg. All others are ₹100 off per kg.</p>
+    </div>
+    <div class="table-scroll">
+      <table class="price-table">
+        <thead>
+          <tr><th>Item</th><th>Hindi</th><th class="num">Original / kg</th><th class="num">You save</th><th class="num">Your price / kg</th></tr>
+        </thead>
+        <tbody id="priceRows"></tbody>
+      </table>
+    </div>
+    <p class="fine">Prices can change with the market. We confirm the final amount with you on WhatsApp before packing.</p>
+  </div>
+</section>
+
+<!-- BUDGET -->
+<section class="section" id="budget">
+  <div class="wrap budget">
+    <div class="budget-intro">
+      <h2>Monthly dry fruit budget for your family</h2>
+      <p>Based on about 30 g of dry fruits per person per day. Move the slider to see the monthly quantity and cost at our prices.</p>
+      <label class="slider" for="fam">
+        <span>Family size: <strong id="famOut">4</strong> people</span>
+        <input type="range" id="fam" min="1" max="10" value="4">
+      </label>
+      <div class="budget-total">
+        <p class="small">Estimated per month</p>
+        <p class="big" id="bTotal">₹0</p>
+        <p class="small">Instead of <s id="bOrig">₹0</s>. You save <strong id="bSave">₹0</strong></p>
+      </div>
+      <button class="btn btn-green" id="addBudget">Add this monthly pack to cart</button>
+    </div>
+    <div class="table-scroll">
+      <table class="price-table compact">
+        <thead><tr><th>Item</th><th class="num">Monthly qty</th><th class="num">Cost</th></tr></thead>
+        <tbody id="budgetRows"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section forest">
+  <div class="wrap why">
+    <div>
+      <h2>Why order from Apna Dry Fruits</h2>
+    </div>
+    <div class="why-list">
+      <article>
+        <h3>Clear prices</h3>
+        <p>Original price, discount and final price are always shown. No surprise at checkout.</p>
+      </article>
+      <article>
+        <h3>Buy the size you need</h3>
+        <p>Start with 250 g to try, or take 1 kg and save on every gram.</p>
+      </article>
+      <article>
+        <h3>Order in one tap</h3>
+        <p>Your cart becomes a WhatsApp message to us. No sign-up, no password.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section class="section" id="tips">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Five ways to buy dry fruits for less</h2>
+    </div>
+    <div class="tips">
+      <article><h3>Buy 1 kg packs</h3><p>The per-kg price is the same on every size here, but fewer orders mean less delivery hassle and you never run out.</p></article>
+      <article><h3>Compare per-kg, not per-pack</h3><p>A small pack can look cheap and cost more per kg. Always divide by the weight before you decide.</p></article>
+      <article><h3>Stock up after harvest</h3><p>Nuts are freshest and often cheapest soon after harvest. Festive weeks are when prices climb.</p></article>
+      <article><h3>Skip fancy gift boxes</h3><p>You pay extra for the box. A plain pack with the same dry fruits is the better deal. Ask us for a simple gift pack on WhatsApp.</p></article>
+      <article><h3>Store them well</h3><p>Keep dry fruits in an airtight jar in a cool, dry place. Nuts stay crisp and last longer.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section tint" id="faq">
+  <div class="wrap faq-wrap">
+    <h2>Questions people ask us</h2>
+    <div class="faq">
+      <details><summary>How do I place an order?</summary><p>Pick a pack size, tap Add, then open your cart and press the WhatsApp button. Your order message is ready to send to 96400 32945.</p></details>
+      <details><summary>What is the discount?</summary><p>Badam and kaju are ₹150 off per kg. Every other item is ₹100 off per kg. Smaller packs get the matching share, so a 500 g pack of badam saves ₹75.</p></details>
+      <details><summary>How do I pay and how is it delivered?</summary><p>After you send your order on WhatsApp, we confirm the total, payment method and delivery details with you there.</p></details>
+      <details><summary>Can I order in bulk or for a function?</summary><p>Yes. Message us on WhatsApp with the items and quantity and we will share a price.</p></details>
+      <details><summary>Which dry fruits are best value for money?</summary><p>Flax seeds, khajur kalmi and chia seeds cost the least per kg. Among nuts, akhrot and badam have the lowest per-kg price.</p></details>
+      <details><summary>How much should a family of four buy each month?</summary><p>About 30 g per person per day comes to roughly 3.6 kg a month. Use the budget calculator above to see the cost.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap cta-row">
+    <div>
+      <h2>Ready to order?</h2>
+      <p>Send us your list on WhatsApp and we will reply with the total.</p>
+    </div>
+    <a class="btn btn-saffron btn-lg" href="https://wa.me/919640032945?text=Hello%20Apna%20Dry%20Fruits%2C%20I%20want%20to%20order." target="_blank" rel="noopener">WhatsApp 96400 32945</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap foot-grid">
+    <div>
+      <a class="brand" href="#top"><img src="assets/logo.svg" alt="" width="40" height="40"><span>Apna Dry Fruits</span></a>
+      <p>Dry fruits, nuts and seeds with clear per-kg prices.</p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <a href="#shop">All products</a>
+      <a href="#pricelist">Price list</a>
+      <a href="#budget">Monthly budget</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="https://wa.me/919640032945" target="_blank" rel="noopener">WhatsApp +91 96400 32945</a>
+      <a href="tel:+919640032945">Call +91 96400 32945</a>
+    </div>
+  </div>
+  <p class="copy">&copy; <span id="yr"></span> Apna Dry Fruits. All rights reserved.</p>
+</footer>
+
+<a class="fab" href="https://wa.me/919640032945?text=Hello%20Apna%20Dry%20Fruits%2C%20I%20want%20to%20order." target="_blank" rel="noopener" aria-label="Order on WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.8A8.5 8.5 0 1 1 8 19.5z"/><path d="M9 9.5c0 3 2.500 5.500 5.500 5.500l1.200-1.500-2-1-.8.800c-1-.4-1.900-1.300-2.300-2.300l.8-.8-1-2z"/></svg>
+</a>
+
+<!-- CART DRAWER -->
+<div class="overlay" id="overlay" hidden></div>
+<aside class="drawer" id="drawer" aria-label="Your cart" aria-hidden="true">
+  <div class="drawer-head">
+    <h2>Your cart</h2>
+    <button class="icon-btn" id="closeCart" aria-label="Close cart">&times;</button>
+  </div>
+  <div class="drawer-body" id="cartBody"></div>
+  <div class="drawer-foot" id="cartFoot">
+    <div class="sum">
+      <p><span>Original total</span><s id="sOrig">₹0</s></p>
+      <p class="save"><span>You save</span><strong id="sSave">₹0</strong></p>
+      <p class="tot"><span>Total</span><strong id="sTotal">₹0</strong></p>
+    </div>
+    <div class="fields">
+      <label>Your name<input id="cName" type="text" autocomplete="name" placeholder="Name"></label>
+      <label>Delivery address<textarea id="cAddr" rows="2" autocomplete="street-address" placeholder="House no, street, area, pincode"></textarea></label>
+      <p class="err" id="cErr" role="alert"></p>
+    </div>
+    <button class="btn btn-wa" id="sendWa">
+      Send order on WhatsApp
+    </button>
+  </div>
+</aside>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/products.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
