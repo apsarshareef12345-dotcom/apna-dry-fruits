@@ -7,6 +7,12 @@
   var byId = {};
   PRODUCTS.forEach(function (p) { byId[p.id] = p; });
 
+  // Uses your own photo from assets/photos/<id>.jpg if it exists, else the drawn image.
+  function imgTag(p, alt, extra) {
+    return '<img src="assets/photos/' + p.id + '.jpg" alt="' + alt + '" ' + (extra || "") +
+      " onerror=\"this.onerror=null;this.src='" + p.img + "'\">";
+  }
+
   function gramsLabel(g) {
     return g >= 1000 ? (g / 1000).toString().replace(/\.0+$/, "") + " kg" : g + " g";
   }
@@ -24,7 +30,7 @@
         (g === DEFAULT_PACK ? " checked" : "") + '><span>' + gramsLabel(g) + "</span></label>";
     }).join("");
     return '<article class="card" data-id="' + p.id + '" data-cat="' + p.cat + '">' +
-      '<div class="card-img"><img src="' + p.img + '" alt="' + p.name + '" loading="lazy" width="400" height="400">' +
+      '<div class="card-img">' + imgTag(p, p.name, 'loading="lazy" width="400" height="400"') +
       '<span class="badge">₹' + p.off + " off/kg</span></div>" +
       '<div class="card-body">' +
       "<h3>" + p.name + '<span class="hindi">' + p.hindi + "</span></h3>" +
@@ -128,7 +134,7 @@
       foot.hidden = false;
       body.innerHTML = cart.map(function (i, idx) {
         var p = byId[i.id];
-        return '<div class="line-item"><img src="' + p.img + '" alt="">' +
+        return '<div class="line-item">' + imgTag(p, "") +
           "<div><h4>" + p.name + '</h4><div class="sub">' + gramsLabel(i.g) + " pack</div>" +
           '<div class="qty"><button data-q="-1" data-i="' + idx + '" aria-label="Decrease">&minus;</button>' +
           "<span>" + i.q + '</span><button data-q="1" data-i="' + idx + '" aria-label="Increase">+</button></div>' +
@@ -218,9 +224,8 @@
   /* ---------- monthly budget ---------- */
   // grams per person per month (about 30 g a day in total)
   var MIX = [
-    { id: "badam", g: 250 }, { id: "kaju", g: 150 }, { id: "akhrot", g: 150 },
-    { id: "kishmish", g: 100 }, { id: "anjeer", g: 100 }, { id: "makhana", g: 100 },
-    { id: "pista", g: 50 }
+    { id: "badam", g: 300 }, { id: "kaju", g: 200 }, { id: "akhrot", g: 150 },
+    { id: "kishmish", g: 100 }, { id: "anjeer", g: 100 }, { id: "pista", g: 50 }
   ];
   var fam = $("#fam");
 

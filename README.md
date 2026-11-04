@@ -32,3 +32,7 @@ Product pictures are illustrations in `assets/products/` (SVG). To use real phot
 
 - Fonts (Bricolage Grotesque and Figtree) load from Google Fonts. If offline, the site falls back to system fonts.
 - The prices in `products.js` are sample values. Please set your real prices before going live.
+
+## Use your real photos
+
+Put JPG photos in `assets/photos/` named after the product (for example `badam.jpg`, `kaju.jpg`). They replace the drawn images automatically. See `assets/photos/README.txt` for the full list of names.
